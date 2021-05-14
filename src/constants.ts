@@ -9,18 +9,20 @@ export enum ChainId {
   RINKEBY = 4,
   GÖRLI = 5,
   KOVAN = 42,
-  XDAI = 100
+  BINANCE = 56,
+  XDAI = 100,
+  POLYGON = 137,
 }
 
 export enum TradeType {
   EXACT_INPUT,
-  EXACT_OUTPUT
+  EXACT_OUTPUT,
 }
 
 export enum Rounding {
   ROUND_DOWN,
   ROUND_HALF_UP,
-  ROUND_UP
+  ROUND_UP,
 }
 
 const FACTORY_ADDRESS = '0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f'
@@ -38,12 +40,12 @@ export function getFactoryParams(chainId: ChainId): FactoryParams {
   if (chainId === ChainId.XDAI) {
     return {
       factoryAddress: FACTORY_ADDRESS_XDAI,
-      initCode: INIT_CODE_HASH_XDAI
+      initCode: INIT_CODE_HASH_XDAI,
     }
   } else {
     return {
       factoryAddress: FACTORY_ADDRESS,
-      initCode: INIT_CODE_HASH
+      initCode: INIT_CODE_HASH,
     }
   }
 }
@@ -63,10 +65,10 @@ export const _1000 = JSBI.BigInt(1000)
 
 export enum SolidityType {
   uint8 = 'uint8',
-  uint256 = 'uint256'
+  uint256 = 'uint256',
 }
 
 export const SOLIDITY_TYPE_MAXIMA = {
   [SolidityType.uint8]: JSBI.BigInt('0xff'),
-  [SolidityType.uint256]: JSBI.BigInt('0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff')
+  [SolidityType.uint256]: JSBI.BigInt('0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff'),
 }
